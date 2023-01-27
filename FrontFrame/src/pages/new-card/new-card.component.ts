@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-new-card',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewCardComponent implements OnInit {
 
-  constructor() { }
+  newPostForm!: FormGroup;
+
+  @Input()
+  control!: FormControl
+
+  constructor(private fb: FormBuilder) {
+    this.newPostForm = this.fb.group({
+      title: ['', [Validators.required, Validators.minLength(8)]],
+      img: [null,Validators.required]
+    })
+   }
 
   ngOnInit(): void {
   }
 
 }
+

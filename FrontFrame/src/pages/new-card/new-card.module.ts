@@ -7,6 +7,8 @@ import { NewCardComponent } from './new-card.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/components/shared.module';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'
+
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     RouterModule,
     SharedModule,
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   exports: [

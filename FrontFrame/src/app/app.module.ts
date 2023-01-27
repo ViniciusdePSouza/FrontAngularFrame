@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HomeModule } from '../pages/home/home.module';
 import { NewCardModule } from '../pages/new-card/new-card.module';
 import { DetailsModule } from '../pages/details/details.module';
+import { EditorModule } from '@tinymce/tinymce-angular';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { DetailsModule } from '../pages/details/details.module';
     AppRoutingModule,
     HomeModule,
     NewCardModule,
-    DetailsModule
+    DetailsModule,
+    EditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
