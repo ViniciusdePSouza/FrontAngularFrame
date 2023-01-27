@@ -1,0 +1,41 @@
+.post {
+    width: 30rem;
+
+    padding: 2rem;
+    margin-top: 3rem;
+    border: 0;
+    border-radius: 6px;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    background-color: var(--white);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    img {
+        width: 90%;
+
+        margin-bottom: 1rem;
+    }
+
+    h1 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 2.4rem;
+        font-weight: bold;
+
+        margin-bottom: 1rem;
+        -webkit-appearance: none;
+    }
+
+    p {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.6rem;
+        font-weight: bold;
+        -webkit-appearance: none;
+    }
+}

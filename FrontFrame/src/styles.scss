@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --bg-purple: #d277f7;
+    --light-blue: #ACFAFF;
+    --dark-blue-heavy: #011c29;
+    --shiny-green: #09ff05;
+    --translucid-dark-blue:rgba(0, 0, 0, 0.32);
+    --white: #ffffff;
+    --black: #001119;
+    --grey: #C4C4CC;
+    --shiny-blue: #82F3FF;
+}
+
+body {
+    background: var(--bg-purple);
+}
+
+button,
+span,
+input {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+a {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover,
+a:hover {
+    filter: brightness(1.1);
+}
+
+a::after {
+    color: var(--white)!important;
+}
+
+button:disabled {
+    cursor: disabled;
+}

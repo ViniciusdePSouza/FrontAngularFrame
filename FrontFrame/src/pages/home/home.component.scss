@@ -1,0 +1,13 @@
+.content {
+    padding: 4rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .8rem;
+    align-items: center;
+
+    max-width: 1120px;
+    overflow: hidden;
+
+    margin: 0 auto;
+}
