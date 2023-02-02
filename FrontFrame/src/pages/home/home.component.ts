@@ -8,6 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   Posts!:  string[]
+
+  editorConfig = {
+    base_url: 'tinymce',
+    suffix: 'min',
+    plugins: 'list link image table wordcount'
+  }
+  
   constructor() { 
     this.Posts = ['a', 'b', 'c', 'd', 'e', 'f']
   }

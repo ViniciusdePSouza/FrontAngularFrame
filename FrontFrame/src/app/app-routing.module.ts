@@ -11,13 +11,13 @@ const routes: Routes = [
   },
 
   {
-    path: 'create',
-    component: NewCardComponent
+    path: 'details/2',
+    component: DetailsComponent
   },
 
   {
-    path: 'details/2',
-    component: DetailsComponent
+    path: "create",
+    component: NewCardComponent
   }
 ];
 

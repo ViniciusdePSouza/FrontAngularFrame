@@ -7,8 +7,8 @@ import { NewCardComponent } from './new-card.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/components/shared.module';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 
 @NgModule({
   declarations: [
@@ -18,9 +18,13 @@ import { FormsModule } from '@angular/forms'
     RouterModule,
     SharedModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    EditorModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymse.min.js' }
+  ],
   exports: [
     NewCardComponent
   ]

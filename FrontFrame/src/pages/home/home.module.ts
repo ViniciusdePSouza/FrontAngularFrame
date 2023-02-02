@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
   imports: [
     RouterModule,
     SharedModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [],
   exports: [

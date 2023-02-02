@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-new-card',
@@ -8,17 +7,23 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 })
 export class NewCardComponent implements OnInit {
 
-  newPostForm!: FormGroup;
+  html: string = '<p>Hi, TinyMCE!</p>';
 
-  @Input()
-  control!: FormControl
+  editorConfig = {
+    base_url: '/tinymce',
+    suffix: '.min',
+    plugins: ['lists link image table code help wordcount save',
+      'advlist autolink lists link image charmap print preview anchor',
+      'searchreplace visualblocks code fullscreen',
+      'insertdatetime media table paste code help wordcount',
+    ],
+  }
 
-  constructor(private fb: FormBuilder) {
-    this.newPostForm = this.fb.group({
-      title: ['', [Validators.required, Validators.minLength(8)]],
-      img: [null,Validators.required]
-    })
-   }
+  constructor() {}
+
+  onSaveContent() {
+    alert(this.html)
+  }
 
   ngOnInit(): void {
   }
