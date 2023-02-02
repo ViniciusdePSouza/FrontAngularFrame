@@ -1,6 +1,7 @@
 export interface Structure {
     id?: number;
     structureHtml: string;
+<<<<<<< HEAD
 }
 
 export interface ImgProps{
@@ -146,3 +147,6 @@ export interface Root {
     pageCount: number
     total: number
   }
+=======
+}
+>>>>>>> 853313ecad49c866bca13e8d42b3189e8c9d6519

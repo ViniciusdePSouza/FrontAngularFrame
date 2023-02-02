@@ -21,7 +21,11 @@ export class HomeComponent implements OnInit {
   }
 
   AtribuirHtmls(){
+<<<<<<< HEAD
     this.list.BuscarTodosHTMl().subscribe(x => {this.Posts = x});
+=======
+    this.list.BuscarTodosHTMl().subscribe(x => {this.Posts = x; console.log(this.Posts)});
+>>>>>>> 853313ecad49c866bca13e8d42b3189e8c9d6519
   }
   ngOnInit(): void {
     this.AtribuirHtmls();
