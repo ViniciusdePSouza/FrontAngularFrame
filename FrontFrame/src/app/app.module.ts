@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
     NewCardModule,
     DetailsModule,
     EditorModule,
+    HttpClientModule,
   ],
   providers: [
     {provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymse.min.js'}

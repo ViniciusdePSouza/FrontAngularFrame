@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Structure } from 'src/interface/Structure';
 
 @Component({
   selector: 'app-posts',
@@ -10,7 +11,7 @@ export class PostsComponent implements OnInit {
   photo: string
 
   @Input()
-  post!: string
+  post!: Structure
 
   constructor() {
     this.photo = '/assets/chile.jpg'
