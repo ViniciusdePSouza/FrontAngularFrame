@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from 'src/app/service.service';
+import { Structure } from 'src/interface/Structure';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -7,13 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  photo: string
+  photo!: string
+  noticia!: Structure;
 
-  constructor() { 
+  constructor(private service: ServiceService, private route: ActivatedRoute) {
     this.photo = '/assets/chile.jpg'
+
   }
 
   ngOnInit(): void {
+    this.Atribuir();
   }
 
+  Atribuir() {
+    const isbn = Number(this.route.snapshot.paramMap.get("id"));
+    this.service.BuscarHtml(isbn).subscribe(x => {
+      this.noticia = { structureHtml: x.structureHtml, id: x.id }
+    });
+  }
 }

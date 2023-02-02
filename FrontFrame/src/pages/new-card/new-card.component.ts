@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ServiceService } from '../../app/service.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-new-card',
@@ -19,9 +21,10 @@ export class NewCardComponent implements OnInit {
     ],
   }
 
-  constructor() {}
+  constructor(private list: ServiceService,private http: HttpClient) {}
 
   onSaveContent() {
+    this.list.EnviarHtml(this.html).subscribe(x => console.log(x.status));
     alert(this.html)
   }
 

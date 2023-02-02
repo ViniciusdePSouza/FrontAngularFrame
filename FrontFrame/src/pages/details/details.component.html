@@ -1,10 +1,5 @@
 <app-header></app-header>
 <div class="container">
     <img src={{photo}} alt="">
-    <div>
-        <h1>Titulo</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi recusandae ad ut laboriosam optio? Dolore
-            quod, dignissimos molestias adipisci eius ex beatae culpa laboriosam quis tenetur perspiciatis temporibus
-            sapiente autem!</p>
-    </div>
+    <div class="contexto" [innerHTML]="noticia.structureHtml"></div>
 </div>
