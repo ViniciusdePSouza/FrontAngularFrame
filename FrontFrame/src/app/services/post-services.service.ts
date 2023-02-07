@@ -8,7 +8,7 @@ export class PostServices extends BaseServiceService<any>{
 
   
   constructor(  private httpclient: HttpClient) {
-    super("Structure",httpclient);
+    super("News",httpclient);
    }
 
 }

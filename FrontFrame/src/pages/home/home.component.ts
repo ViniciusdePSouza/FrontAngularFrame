@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostServices } from 'src/app/services/post-services.service';
-import {PostProps} from '../../interface/Structure';
+import {NewsProps, PostProps} from '../../interface/Structure';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +9,7 @@ import {PostProps} from '../../interface/Structure';
 })
 export class HomeComponent implements OnInit {
 
-  Posts!: PostProps[];
-  PostsforTest!: string[]
+  Posts!: NewsProps[];
 
   editorConfig = {
     base_url: 'tinymce',
@@ -20,12 +19,13 @@ export class HomeComponent implements OnInit {
   
   constructor(private postservice: PostServices) { 
 
-    this.PostsforTest = ['a', 'b', 'c']
 
   }
 
   AtribuirHtmls(){
-     this.postservice.Get().subscribe(response => {this.Posts = response;console.log(response)});
+     this.postservice.Get().subscribe(response => {this.Posts = response;response.forEach(x =>{
+      console.log(x.urlImagem)
+     })});
   }
   ngOnInit(): void {
     this.AtribuirHtmls();

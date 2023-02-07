@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NewsProps } from 'src/interface/Structure';
 
 @Component({
   selector: 'app-posts',
@@ -7,13 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  photo: string
+  image: string
 
   @Input()
-  post!: string
+  post!: NewsProps
 
   constructor() {
-    this.photo = '/assets/chile.jpg'
+    this.image = '/assets/chile.jpg'
    }
 
   ngOnInit(): void {
