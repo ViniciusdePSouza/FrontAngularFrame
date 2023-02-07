@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ServiceService } from '../../app/service.service';
 import { HttpClient } from '@angular/common/http';
+import { PostServices } from 'src/app/services/post-services.service';
 
 @Component({
   selector: 'app-new-card',
@@ -21,14 +21,17 @@ export class NewCardComponent implements OnInit {
     ],
   }
 
-  constructor(private list: ServiceService,private http: HttpClient) {}
+  constructor(private postService:PostServices) {
+    
+  }
 
   onSaveContent() {
-    this.list.EnviarHtml(this.html).subscribe(x => console.log(x.status));
-    alert(this.html)
+    this.postService.Post({"structureHtml":this.html}).subscribe();
+    alert(this.html);
   }
 
   ngOnInit(): void {
+
   }
 
 }
