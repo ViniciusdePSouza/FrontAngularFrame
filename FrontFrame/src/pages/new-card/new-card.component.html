@@ -1,13 +1,10 @@
-<app-header></app-header>
-
 <div>
-
     <h1>Criar novo Post</h1>
 
     <editor [init]="editorConfig" [(ngModel)]="html" outputFormat="html"
         modelEvents="change input nodechange undo redo"></editor>
 
-    <button (click)="onSaveContent()">
+    <button (click)="onSaveContent()" class="btn btn-2">
         Submit
     </button>
 

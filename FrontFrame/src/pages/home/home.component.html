@@ -1,4 +1,5 @@
-<app-header></app-header>
+
 <div class="content">
-    <app-posts *ngFor="let post of Posts" [post]="post" routerLink="/details/{{post.id}}"></app-posts>
+    <app-posts *ngFor="let post of PostsforTest"></app-posts>
+    <!-- [post]="post.structureHtml" routerLink="/details/{{post.id}}" -->
 </div>

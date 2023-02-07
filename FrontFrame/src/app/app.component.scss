@@ -1,0 +1,13 @@
+.app-container {
+    display: flex;
+    align-items: center;
+
+    .app-header{
+        width: 20%;
+        justify-content: flex-start;
+    }
+
+    .app-outlet {
+        margin: 0 auto;
+    }
+}

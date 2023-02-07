@@ -1,8 +1,6 @@
 .content {
-    padding: 4rem;
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: .8rem;
     align-items: center;
 

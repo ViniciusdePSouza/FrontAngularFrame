@@ -8,24 +8,26 @@ import { HomeModule } from '../pages/home/home.module';
 import { NewCardModule } from '../pages/new-card/new-card.module';
 import { DetailsModule } from '../pages/details/details.module';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
+import { SharedModule } from "../components/shared.module";
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HomeModule,
-    NewCardModule,
-    DetailsModule,
-    EditorModule,
-    HttpClientModule,
-  ],
-  providers: [
-    {provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymse.min.js'}
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+    ],
+    providers: [
+        { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymse.min.js' }
+    ],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HomeModule,
+        NewCardModule,
+        DetailsModule,
+        EditorModule,
+        HttpClientModule,
+        SharedModule
+    ]
 })
 export class AppModule { }

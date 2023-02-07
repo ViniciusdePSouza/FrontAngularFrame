@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from 'src/app/service.service';
-import { Structure } from 'src/interface/Structure';
+import { PostServices } from 'src/app/services/post-services.service';
+import {PostProps} from '../../interface/Structure';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,8 @@ import { Structure } from 'src/interface/Structure';
 })
 export class HomeComponent implements OnInit {
 
-  Posts!: Structure[];
+  Posts!: PostProps[];
+  PostsforTest!: string[]
 
   editorConfig = {
     base_url: 'tinymce',
@@ -17,15 +18,12 @@ export class HomeComponent implements OnInit {
     plugins: 'list link image table wordcount'
   }
   
-  constructor(private list: ServiceService) { 
+  constructor(private postservice: PostServices) { 
+    this.PostsforTest = ['a', 'b', 'c']
   }
 
   AtribuirHtmls(){
-<<<<<<< HEAD
-    this.list.BuscarTodosHTMl().subscribe(x => {this.Posts = x});
-=======
-    this.list.BuscarTodosHTMl().subscribe(x => {this.Posts = x; console.log(this.Posts)});
->>>>>>> 853313ecad49c866bca13e8d42b3189e8c9d6519
+     this.postservice.Get().subscribe(response => {this.Posts = response;console.log(response)});
   }
   ngOnInit(): void {
     this.AtribuirHtmls();
