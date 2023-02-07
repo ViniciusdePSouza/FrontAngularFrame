@@ -10,7 +10,10 @@ import {PostProps} from '../../interface/Structure';
 export class HomeComponent implements OnInit {
 
   Posts!: PostProps[];
+<<<<<<< HEAD
   PostsforTest!: string[]
+=======
+>>>>>>> 6449e6df72975c6a69aebd2b5221ee17fc319447
 
   editorConfig = {
     base_url: 'tinymce',
@@ -19,7 +22,10 @@ export class HomeComponent implements OnInit {
   }
   
   constructor(private postservice: PostServices) { 
+<<<<<<< HEAD
     this.PostsforTest = ['a', 'b', 'c']
+=======
+>>>>>>> 6449e6df72975c6a69aebd2b5221ee17fc319447
   }
 
   AtribuirHtmls(){
