@@ -1,27 +1,43 @@
 form {
     width: 100%;
-
+    h1{
+        text-align: center;
+    }
     #input-file-wrapper {
         label{
             display: flex;
+            flex-direction: column;
             align-items: center;
+            margin-top: 25px;
 
             font-family: 'Roboto', sans-serif;
             font-size: 1.6rem;
             font-weight: bold;
         
             -webkit-appearance: none;
-        
-            margin-bottom: 3rem;
+
+          p{
+            padding: 5px 120px 14px 120px;
+            background-color: red;
+            border-radius: 5px;
+          }
 
             img {
+                position: relative;
+                right: 170px;
                 width: 4rem;
             }
-
-            input {
-                display: none
-            } ;
         }
+        #post-photo{
+            display: none;
+        }
+    }
+    .inputs{
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: baseline;
     }
 }
 

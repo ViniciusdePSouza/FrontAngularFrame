@@ -1,20 +1,28 @@
 <div>
-    <form [formGroup]="newPostForm" (ngSubmit)="onSaveContent()">
+    <form [hidden]="false" [formGroup]="newPostForm" (ngSubmit)="onSaveContent()">
         <h1>Criar novo Post</h1>
-    
-        <app-input iconReference='/assets/author.png' title="Autor" placeholder="Insira o nome do autor do post" type="text" [control]="$any(newPostForm.controls['author'])"></app-input>
-        <app-input iconReference='/assets/link.png' title="Slug" placeholder="Link para a notícia" type="text" [control]="$any(newPostForm.controls['slug'])"></app-input>
-        <app-input iconReference='/assets/title.png' title="Título" placeholder="Insira o título da notícia" type="text" [control]="$any(newPostForm.controls['title'])"></app-input>
-        <div id="input-file-wrapper">
-            <label for="post-photo">
-                <img src={{cameraIcon}} alt="">
-                Selecione seu arquivo
-                <input type="file" id="post-photo" name="post-photo" (change)="onChange($event)">
-            </label>
+        <div class="inputs">
+            <div class="inputsOne">
+                <app-input iconReference='/assets/author.png' title="Autor" placeholder="Insira o nome do autor"
+                    type="text" [control]="$any(newPostForm.controls['author'])"></app-input>
+                <app-input iconReference='/assets/link.png' title="Slug" placeholder="Link para a notícia" type="text"
+                    [control]="$any(newPostForm.controls['slug'])"></app-input>
+            </div>
+            <div class="inputsTwo">
+                <app-input iconReference='/assets/title.png' title="Título" placeholder="Insira o título da notícia"
+                    type="text" [control]="$any(newPostForm.controls['title'])"></app-input>
+                <div id="input-file-wrapper">
+                    <label for="post-photo">
+                        <img src={{cameraIcon}} alt="">
+                        <p>Selecione o arquivo</p>
+                    </label>
+                        <input type="file" id="post-photo" name="post-photo" (change)="onChange($event)">
+                </div>
+            </div>
         </div>
-    
-        <editor [init]="editorConfig" [(ngModel)]="html" outputFormat="html"></editor>
-    
+
+        <editor [ngModelOptions]="{standalone: true}" [init]="editorConfig" [(ngModel)]="html" outputFormat="html"></editor>
+
         <button class="btn btn-2">
             Submit
         </button>

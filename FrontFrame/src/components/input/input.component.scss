@@ -5,7 +5,7 @@
     .title-wrapper{
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: .5rem;
         img {
             width: 4rem;
         }
@@ -13,9 +13,9 @@
 
     label {
         display: flex;
-        flex-direction: column;
 
         text-align: left;
+        margin-bottom: 5px;
 
         font-family: 'Roboto', sans-serif;
         font-size: 1.6rem;
@@ -27,17 +27,18 @@
     }
 
     input {
-        margin-top: 1rem;
+        margin-top: .5rem;
 
-        padding: 1rem 2.5rem;
+        padding: 1rem 10rem;
+        margin:0 5px;
 
-        border: 1px solid var(--purple-300);
+        border: none;
         border-radius: 6px;
 
         background-color: var(--purple-100);
 
         &::placeholder {
-            color: #3b23485b;
+            color: black
         }
     }
 

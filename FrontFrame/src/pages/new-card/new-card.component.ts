@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PostServices } from 'src/app/services/post-services.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {NewsRequest} from '../../interface/Structure';
 
 @Component({
   selector: 'app-new-card',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class NewCardComponent implements OnInit {
 
-  html: string = '<p>Hi, TinyMCE!</p>';
+  html!: string ;
   newPostForm!: FormGroup;
   cameraIcon: string = '/assets/camera.png'
 
@@ -33,22 +34,28 @@ export class NewCardComponent implements OnInit {
   }
 
   onSaveContent() {
-    // if (this.newPostForm.invalid) {
-    //   return alert('Preencha tds os campos')
-    // }
-
-    const NewPost = {
-      "slug": this.newPostForm.value.slug,
-      "autorPostagem": this.newPostForm.value.author,
-      "texto": this.html,
-      "titulo": this.newPostForm.value.title,
-      "urlImagem": this.newPostForm.value.image,
+    if (this.newPostForm.invalid) {
+      console.log(this.newPostForm.value)
+      return alert('Preencha tds os campos')
     }
 
-    console.log(NewPost);
+    const NewPost:NewsRequest = {
+      "slug": this.newPostForm.value.slug,
+      "autorPostagem": this.newPostForm.value.author,
+      "texto": String(this.html),
+      "titulo": this.newPostForm.value.title,
+      "file": this.newPostForm.value.image,
+    }
 
-    // this.postService.Post(NewPost).subscribe();
-    // alert(this.html);
+    let form = new FormData();
+    form.append("slug",this.newPostForm.value.slug)
+    form.append("autorPostagem",this.newPostForm.value.author)
+    form.append("texto",String(this.html))
+    form.append("titulo",this.newPostForm.value.title)
+    form.append("file",this.newPostForm.value.image)
+
+    this.postService.PostSemJson(form).subscribe(x => console.log(x));
+
   }
 
   onChange(event: any) {

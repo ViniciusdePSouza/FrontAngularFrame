@@ -12,3 +12,10 @@ export interface NewsProps{
         dataPostagem: Date;
         urlImagem: string;
 }
+export interface NewsRequest{
+    slug: string;
+    autorPostagem: string;
+    texto: string;
+    titulo: string;
+    file: File;
+}

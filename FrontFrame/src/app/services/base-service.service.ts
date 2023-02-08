@@ -19,6 +19,9 @@ export class BaseServiceService<T> {
   Post(obj: T) {
     return this.httpClient.post<T>(`${this.apiUrl}${this.resource}`, JSON.stringify(obj), { headers: this.httpHeaders })
   }
+  PostSemJson (obj: T) {
+    return this.httpClient.post<T>(`${this.apiUrl}${this.resource}`, obj)
+  }
   Get() {
     return this.httpClient.get<T[]>(`${this.apiUrl}${this.resource}`);
   }
