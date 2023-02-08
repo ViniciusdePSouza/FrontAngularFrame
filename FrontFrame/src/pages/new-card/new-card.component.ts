@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { PostServices } from 'src/app/services/post-services.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-card',
@@ -10,6 +10,8 @@ import { PostServices } from 'src/app/services/post-services.service';
 export class NewCardComponent implements OnInit {
 
   html: string = '<p>Hi, TinyMCE!</p>';
+  newPostForm!: FormGroup;
+  cameraIcon: string = '/assets/camera.png'
 
   editorConfig = {
     base_url: '/tinymce',
@@ -21,13 +23,39 @@ export class NewCardComponent implements OnInit {
     ],
   }
 
-  constructor(private postService:PostServices) {
-    
+  constructor(private postService: PostServices, private fb: FormBuilder) {
+    this.newPostForm = this.fb.group({
+      author: ['', [Validators.required, Validators.nullValidator, Validators.minLength(5)]],
+      slug: ['', [Validators.required, Validators.nullValidator, Validators.maxLength(10)]],
+      title: ['', [Validators.required, Validators.nullValidator, Validators.maxLength(20)]],
+      image: ([Validators.required])
+    })
   }
 
   onSaveContent() {
-    this.postService.Post({"structureHtml":this.html}).subscribe();
-    alert(this.html);
+    // if (this.newPostForm.invalid) {
+    //   return alert('Preencha tds os campos')
+    // }
+
+    const NewPost = {
+      "slug": this.newPostForm.value.slug,
+      "autorPostagem": this.newPostForm.value.author,
+      "texto": this.html,
+      "titulo": this.newPostForm.value.title,
+      "urlImagem": this.newPostForm.value.image,
+    }
+
+    console.log(NewPost);
+
+    // this.postService.Post(NewPost).subscribe();
+    // alert(this.html);
+  }
+
+  onChange(event: any) {
+    const file: File = event.target.files[0];
+    this.newPostForm.patchValue({
+      image: file
+    })
   }
 
   ngOnInit(): void {

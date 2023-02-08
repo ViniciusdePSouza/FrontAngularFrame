@@ -3,27 +3,30 @@ import { NgModule } from '@angular/core';
 //Components
 import { HeaderComponent } from './header/header.component';
 import { PostsComponent } from './posts/posts.component';
-import { InputTextComponent } from './input-text/input-text.component';
+import { InputComponent } from './input/input.component';
 
 //Modules
 import { RouterModule, } from '@angular/router';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
         HeaderComponent,
         PostsComponent,
-        InputTextComponent
+        InputComponent
     ],
     imports: [
         RouterModule,
-        EditorModule
+        EditorModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
     providers: [],
     exports: [
         HeaderComponent,
         PostsComponent,
-        InputTextComponent
+        InputComponent
     ]
 })
 export class SharedModule { }
