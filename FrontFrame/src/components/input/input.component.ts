@@ -11,6 +11,8 @@ export class InputComponent implements OnInit {
   @Input()
   title!: string
 
+@Input() initialValue?:string;
+
   @Input()
   type!: string
 

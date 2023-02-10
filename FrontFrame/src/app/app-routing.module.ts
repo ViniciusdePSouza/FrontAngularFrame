@@ -1,3 +1,4 @@
+import { EditPostComponent } from '../pages/edit-post/edit-post.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from 'src/pages/home/home.component';
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: "create",
     component: NewCardComponent
+  },
+  {
+    path: 'details/edit/:id',
+    component: EditPostComponent
   }
 ];
 

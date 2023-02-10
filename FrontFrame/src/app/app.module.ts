@@ -9,6 +9,7 @@ import { NewCardModule } from '../pages/new-card/new-card.module';
 import { DetailsModule } from '../pages/details/details.module';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { SharedModule } from "../components/shared.module";
+import { EditPostModule } from 'src/pages/edit-post/edit-post.module';
 
 
 
@@ -28,7 +29,8 @@ import { SharedModule } from "../components/shared.module";
         DetailsModule,
         EditorModule,
         HttpClientModule,
-        SharedModule
+        SharedModule,
+        EditPostModule
     ]
 })
 export class AppModule { }

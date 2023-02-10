@@ -4,5 +4,6 @@
         <h1>{{noticia.titulo}}</h1>
         <p [innerHTML]="noticia.texto"></p>
         <button (click)="DeletePost()">Deletar</button>
+        <a routerLink="/details/edit/{{noticia.id}}">Editar</a>
     </div>
 </div>
