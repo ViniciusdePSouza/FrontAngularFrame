@@ -13,6 +13,10 @@ export class PostsComponent implements OnInit {
   @Input()
   post!: NewsProps
 
+  teste(){
+    this.post.texto.slice(50,0);
+  }
+
   constructor() {
     this.image = '/assets/chile.jpg'
    }

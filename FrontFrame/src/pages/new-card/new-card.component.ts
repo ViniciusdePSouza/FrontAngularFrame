@@ -33,10 +33,22 @@ export class NewCardComponent implements OnInit {
     })
   }
 
+  get title(){
+    return this.newPostForm.get('title')!;
+  }
+  get slug(){
+    return this.newPostForm.get('slug')!;
+  }
+  get author(){
+    return this.newPostForm.get('author')!;
+  }
+  get image(){
+    return this.newPostForm.get('image')!;
+  }
+
   onSaveContent() {
     if (this.newPostForm.invalid) {
       console.log(this.newPostForm.value)
-      return alert('Preencha tds os campos')
     }
 
     const NewPost:NewsRequest = {

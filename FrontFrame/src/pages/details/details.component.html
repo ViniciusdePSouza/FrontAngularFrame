@@ -1,4 +1,8 @@
 <div class="container">
-    <img src={{photo}} alt="">
-    <div class="contexto" [innerHTML]="noticia.structureHtml"></div>
+    <img src={{noticia.urlImagem}} alt="Imagem do post">
+    <div>
+        <h1>{{noticia.titulo}}</h1>
+        <p [innerHTML]="noticia.texto"></p>
+        <button (click)="DeletePost()">Deletar</button>
+    </div>
 </div>

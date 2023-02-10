@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponseBase } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse, HttpResponseBase, HttpStatusCode } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export class BaseServiceService<T> {
@@ -26,9 +26,9 @@ export class BaseServiceService<T> {
     return this.httpClient.get<T[]>(`${this.apiUrl}${this.resource}`);
   }
   GetById(id: number) {
-    return this.httpClient.get<T[]>(`${this.apiUrl}${this.resource}/${id}`);
+    return this.httpClient.get<T>(`${this.apiUrl}${this.resource}/${id}`);
   }
-  Delete(id:number){
-    return this.httpClient.delete(`${this.apiUrl}${this.resource}/${id}`);
+  Delete(id:number): Observable<HttpResponse<HttpStatusCode>>{
+    return this.httpClient.delete<HttpStatusCode>(`${this.apiUrl}${this.resource}/${id}`,{observe: 'response'});
   }
 }

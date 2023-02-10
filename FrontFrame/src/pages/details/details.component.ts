@@ -1,5 +1,7 @@
+import { NewsProps } from 'src/interface/Structure';
+import { PostServices } from './../../app/services/post-services.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -7,11 +9,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-
+id!:number;
   photo!: string
-  noticia!: any;
+  noticia!: NewsProps;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,private postservice:PostServices,private router: Router) {
     this.photo = '/assets/chile.jpg'
 
   }
@@ -20,10 +22,30 @@ export class DetailsComponent implements OnInit {
     this.Atribuir();
   }
 
+  DeletePost(){
+    let decisao = confirm("Deseja deletar este post?");
+    if(decisao){
+    this.postservice.Delete(this.noticia.id).subscribe((response)=>{
+      if(response.status == 200){
+        alert("Deletado com sucesso.");
+        this.router.navigate(['/']);
+      }
+      else{
+        alert("Aconteceu um erro");
+      }
+    });
+  }
+  }
+
   Atribuir() {
-    // const isbn = Number(this.route.snapshot.paramMap.get("id"));
-    // this.service.BuscarHtml(isbn).subscribe(x => {
-    //   this.noticia = { structureHtml: x.structureHtml, id: x.id }
-    // });
+    
+     this.route.paramMap.subscribe(params => {
+      this.id = Number(params.get('id'));
+          });
+
+     this.postservice.GetById(this.id).subscribe(post => {
+       this.noticia = post
+       console.log(this.noticia)
+     });
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostServices } from 'src/app/services/post-services.service';
-import {NewsProps, PostProps} from '../../interface/Structure';
+import { NewsProps, PostProps } from '../../interface/Structure';
 
 @Component({
   selector: 'app-home',
@@ -16,18 +16,18 @@ export class HomeComponent implements OnInit {
     suffix: 'min',
     plugins: 'list link image table wordcount'
   }
-  
-  constructor(private postservice: PostServices) { 
 
+  constructor(private postservice: PostServices) { }
 
-  }
-
-  AtribuirHtmls(){
-     this.postservice.Get().subscribe(response => {this.Posts = response;response.forEach(x =>{
-      console.log(x.urlImagem)
-     })});
+  GetPosts() {
+    this.postservice.Get().subscribe(response => {
+      this.Posts = response;
+       response.forEach(post => {
+        console.log(post.urlImagem)
+      })
+    });
   }
   ngOnInit(): void {
-    this.AtribuirHtmls();
+    this.GetPosts();
   }
 }

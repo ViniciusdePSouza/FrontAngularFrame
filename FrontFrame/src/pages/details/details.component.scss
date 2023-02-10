@@ -13,9 +13,24 @@
     gap: 10rem;
 
     display: flex;
+    
     align-items: center;
     justify-content: space-between;
+    
+    h1 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 2.4rem;
+        font-weight: bold;
 
+        -webkit-appearance: none;
+    }
+    button{
+        padding: 1rem 3.5rem;
+        border: 0;
+        margin-top: 2rem;
+        border-radius: 6px;
+        background-color: var(--red-300);
+    }
     img {
         width: 30rem
     }

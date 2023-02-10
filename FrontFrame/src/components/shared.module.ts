@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { PostsComponent } from './posts/posts.component';
 import { InputComponent } from './input/input.component';
+import { ButtonComponent } from './button/button.component';
 
 //Modules
 import { RouterModule, } from '@angular/router';
@@ -14,7 +15,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     declarations: [
         HeaderComponent,
         PostsComponent,
-        InputComponent
+        InputComponent,
+        ButtonComponent
     ],
     imports: [
         RouterModule,
@@ -26,7 +28,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     exports: [
         HeaderComponent,
         PostsComponent,
-        InputComponent
+        InputComponent,
+        ButtonComponent
     ]
 })
 export class SharedModule { }
