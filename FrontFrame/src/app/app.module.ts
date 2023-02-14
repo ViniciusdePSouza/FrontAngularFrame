@@ -24,7 +24,7 @@ import { EditPostModule } from 'src/pages/edit-post/edit-post.module';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        HomeModule,
+        HomeModule, 
         NewCardModule,
         DetailsModule,
         EditorModule,

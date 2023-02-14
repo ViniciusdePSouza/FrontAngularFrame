@@ -28,12 +28,6 @@ export class EditPostComponent implements OnInit {
   }
 
   constructor(private postService: PostServices, private fb: FormBuilder,private router:ActivatedRoute) {
-    this.EditPost = this.fb.group({
-      author: ['', [Validators.required, Validators.nullValidator, Validators.minLength(5)]],
-      slug: ['', [Validators.required, Validators.nullValidator, Validators.maxLength(10)]],
-      title: ['', [Validators.required, Validators.nullValidator, Validators.maxLength(20)]],
-      image: ([Validators.required])
-    })
    }
 
 
@@ -65,8 +59,7 @@ export class EditPostComponent implements OnInit {
       "slug": this.EditPost.value.slug,
       "autorPostagem": this.EditPost.value.author,
       "texto": String(this.html),
-      "titulo": this.EditPost.value.title,
-      "file": this.EditPost.value.image,
+      "titulo": this.EditPost.value.title
     }
 
     let form = new FormData();
@@ -74,22 +67,35 @@ export class EditPostComponent implements OnInit {
     form.append("autorPostagem",this.EditPost.value.author)
     form.append("texto",String(this.html))
     form.append("titulo",this.EditPost.value.title)
-    form.append("file",this.EditPost.value.image)
 
     this.postService.PostSemJson(form).subscribe(x => console.log(x));
 
   }
 
-  async FetchDefaultValues(){
-    this.router.paramMap.subscribe(params =>{
+  async FetchPost(){
+    const id = this.router.paramMap.subscribe(params =>{
       this.id = Number(params.get('id'));
      })
       this.postService.GetById(this.id).subscribe(Post =>{
         this.postDefaultValues = Post;
+        this.EditPost.patchValue({
+          author:this.postDefaultValues.autorPostagem,
+          slug:this.postDefaultValues.slug,
+          title:this.postDefaultValues.titulo
+        });
+        this.html = this.postDefaultValues.texto;
       });
   }
-  ngOnInit(): void {
 
+  ngOnInit(): void {
+    this.EditPost = this.fb.group({
+      id:['', [Validators.required]],
+      author: ['', [Validators.required, Validators.nullValidator, Validators.minLength(5)]],
+      slug: ['', [Validators.required, Validators.nullValidator, Validators.maxLength(10)]],
+      title: ['', [Validators.required, Validators.nullValidator, Validators.maxLength(20)]],
+      image: ([Validators.required])
+    })
+    this.FetchPost();
   }
 
 }

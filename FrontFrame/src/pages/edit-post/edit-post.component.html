@@ -1,16 +1,16 @@
 <div>
     <form [formGroup]="EditPost" (ngSubmit)="onSaveContent()" #formDir="ngForm">
-        <h1>Criar novo Post</h1>
+        <h1>Editar novo Post</h1>
         <div class="inputs">
             <div class="inputsOne">
-                <app-input [initialValue]="postDefaultValues.autorPostagem" iconReference='/assets/author.png' title="Autor" placeholder="Insira o nome do autor"
+                <app-input iconReference='/assets/author.png' title="Autor" placeholder="Insira o nome do autor"
                     type="text" [control]="$any(EditPost.controls['author'])"></app-input>
                 <div *ngIf="author.invalid && formDir.submitted" class="validation-error">
                     <p *ngIf="author.errors?.['required']">O author é obrigatório.</p>
                     <p *ngIf="author.errors?.['minlength']">O author pode conter no minimo 3 caracteres.</p>
                     <p *ngIf="author.errors?.['maxlength']">O author pode conter no maximo 50 caracteres.</p>
                 </div>
-                <app-input [initialValue]="postDefaultValues.slug" iconReference='/assets/link.png' title="Slug" placeholder="Link para a notícia" type="text"
+                <app-input iconReference='/assets/link.png' title="Slug" placeholder="Link para a notícia" type="text"
                     [control]="$any(EditPost.controls['slug'])"></app-input>
                 <div *ngIf="slug.invalid && formDir.submitted" class="validation-error">
                     <p *ngIf="slug.errors?.['required']">O slug é obrigatório.</p>
@@ -18,22 +18,11 @@
                 </div>
             </div>
             <div class="inputsTwo">
-                <app-input [initialValue]="postDefaultValues.titulo" iconReference='/assets/title.png' title="Título" placeholder="Insira o título da notícia"
+                <app-input iconReference='/assets/title.png' title="Título" placeholder="Insira o título da notícia"
                     type="text" [control]="$any(EditPost.controls['title'])"></app-input>
                 <div *ngIf="title.invalid && formDir.submitted" class="validation-error">
                     <p *ngIf="title.errors?.['required']">O title é obrigatório.</p>
                     <p *ngIf="title.errors?.['maxlength']">O title pode conter no maximo 20 caracteres.</p>
-                </div>
-
-                <div id="input-file-wrapper">
-                    <label for="post-photo">
-                        <img src={{cameraIcon}} alt="">
-                        <p>Selecione a imagem</p>
-                    </label>
-                    <input type="file" id="post-photo" name="post-photo" (change)="onChange($event)">
-                    <div *ngIf="image.invalid && formDir.submitted" class="validation-error">
-                        <p *ngIf="image.errors?.['required']">A imagem é obrigatório.</p>
-                    </div>
                 </div>
             </div>
         </div>

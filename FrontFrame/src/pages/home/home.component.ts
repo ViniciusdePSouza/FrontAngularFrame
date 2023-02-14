@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
     this.postservice.Get().subscribe(response => {
       this.Posts = response;
        response.forEach(post => {
-        console.log(post.urlImagem)
       })
     });
   }

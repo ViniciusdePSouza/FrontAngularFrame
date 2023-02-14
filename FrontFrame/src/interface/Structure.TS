@@ -17,5 +17,5 @@ export interface NewsRequest{
     autorPostagem: string;
     texto: string;
     titulo: string;
-    file: File;
+    file?: File;
 }
