@@ -22,6 +22,10 @@ export class BaseServiceService<T> {
   PostSemJson (obj: T) {
     return this.httpClient.post<T>(`${this.apiUrl}${this.resource}`, obj)
   }
+  PutSemJson (obj: T,id:number) {
+    return this.httpClient.put<T>(`${this.apiUrl}${this.resource}/${id}`,obj,{ headers: this.httpHeaders })
+  }
+
   Get() {
     return this.httpClient.get<T[]>(`${this.apiUrl}${this.resource}`);
   }

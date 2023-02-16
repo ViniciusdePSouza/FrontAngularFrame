@@ -45,7 +45,6 @@ id!:number;
 
      this.postservice.GetById(this.id).subscribe(post => {
        this.noticia = post
-       console.log(this.noticia)
      });
   }
 }

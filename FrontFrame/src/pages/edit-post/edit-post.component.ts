@@ -52,23 +52,16 @@ export class EditPostComponent implements OnInit {
   }
 
     onSaveContent() {
-    if (this.EditPost.invalid) {
-      console.log(this.EditPost.value)
-    }
-    const NewPost:NewsRequest = {
-      "slug": this.EditPost.value.slug,
-      "autorPostagem": this.EditPost.value.author,
-      "texto": String(this.html),
-      "titulo": this.EditPost.value.title
-    }
 
-    let form = new FormData();
-    form.append("slug",this.EditPost.value.slug)
-    form.append("autorPostagem",this.EditPost.value.author)
-    form.append("texto",String(this.html))
-    form.append("titulo",this.EditPost.value.title)
-
-    this.postService.PostSemJson(form).subscribe(x => console.log(x));
+   let FormPut ={
+    slug: this.EditPost.value.slug,
+    autorPostagem:this.EditPost.value.author,
+    texto: this.html,
+    titulo:this.EditPost.value.title
+   }
+   console.log(FormPut)
+   console.log(this.id)
+    this.postService.PutSemJson(FormPut,this.id).subscribe(x => console.log(x));
 
   }
 
@@ -90,7 +83,7 @@ export class EditPostComponent implements OnInit {
   ngOnInit(): void {
     this.EditPost = this.fb.group({
       id:['', [Validators.required]],
-      author: ['', [Validators.required, Validators.nullValidator, Validators.minLength(5)]],
+      author: ['', [Validators.required, Validators.nullValidator, Validators.minLength(3)]],
       slug: ['', [Validators.required, Validators.nullValidator, Validators.maxLength(10)]],
       title: ['', [Validators.required, Validators.nullValidator, Validators.maxLength(20)]],
       image: ([Validators.required])
